@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+	</head>
+	<body>
+		<h2>
+			<!-- Template filters are used by "variableName | filer" -->
+			{% if username %}
+				Welcome {{ username | upper }}!
+			{% else %}
+				Welcome Learning Platform
+			{% endif %}
+		</h2>
+		<h3>
+			{% for name in data %}
+				{{ forloop.counter }}. {{ name }}<br>
+				
+				{% empty %}
+					<h4>No Data to Show</h4>
+			{% endfor %}
+		</h3>
+		<h4>
+			{% for i in numpyData %}
+				{{ i }}
+			{% endfor %}
+		</h4>
+	</body>
+</html>
