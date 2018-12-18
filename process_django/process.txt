@@ -1,0 +1,42 @@
+=> Make an app of a project folder
+mkdir apps
+cd apps -> mkdir quiz
+python manage.py startapp quiz apps/quiz
+
+=> Module related variables are written in CAPS
+
+-> WSGI - Web server gateway interface
+ => provide new port
+ python manage.py runserver portNumber
+
+ => Change language code 
+navigate to projectName->settings.py->LANGUAGE_CODE 
+LANGUAGE_CODE = 'ne' for nepali
+
+ => Change Time Zone
+navigate to projectName->settings.py->TIME_ZONE 
+TIME_ZONE = 'Asia/Kathmandu' for nepal dateline
+
+-> Making of Model in app folder
+Create class inheriting models.Model class
+no need of __init__. 
+Default fields are required. 
+make a character fiels with models.CharField(max_length=25, unique=True)
+slug => used to provide url title (Eg.used in SEO)
+# Note: SlugField needs to have - 
+
+# View django Cheat sheet
+
+# Add model in the setting of project under INSTALLED_APPS
+'apps.quiz',
+
+# After changing model
+python manage.py makemigrations => Only if fields are changed not for methods
+python manage.py migrate
+
+# Register site in admin.py file
+from .models import Category
+admin.site.register(Category) => This returns as object. To show the field override __str__ function
+							def __str__(self):
+									return self.fieldName
+
