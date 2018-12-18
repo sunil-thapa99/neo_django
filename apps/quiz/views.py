@@ -10,7 +10,7 @@ def home(request):
 	#pprint(request.__dict__)
 	template = 'home.html'
 	context ={
-		"username": "Sunil",
+		# "username": "Sunil",
 		'title': 'Home Page',
 		'data': {'santosh', 'ram', 'shyam'},
 		'numpyData': np.zeros(5),

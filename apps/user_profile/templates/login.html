@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    	<meta charset="utf-8">
+        <title>Login</title>
+    </head>
+    <body>
+        <h1><center>Login Page</center></h1>
+        <!-- as_p means display form as paragraph -->
+        <form method="POST">
+        	{% csrf_token %}
+        	<center>
+        		<h1>{{ form.as_p }}</h1> 
+        		<input type="submit" name="" value="Login">
+        	</center>
+        </form>
+    </body>
+</html>
