@@ -1,32 +1,35 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>{{ title }}</title>
-	</head>
-	<body>
-		<h2>
-			<!-- Template filters are used by "variableName | filer" -->
-			{% if request.user.is_authenticated %}
-				Welcome {{ request.user | capfirst }}!
-				<a href="{% url 'user_profile:logout' %}">Logout</a>
-			{% else %}
-				<!-- url namespace:name namespace define in settings and urls page, name define in urls page  -->
-				Welcome Learning Platform
-				<a href="{% url 'user_profile:login' %}">Login</a>
-			{% endif %}
-		</h2>
-		<h3>
-			{% for name in data %}
-				{{ forloop.counter }}. {{ name }}<br>
-				
-				{% empty %}
-					<h4>No Data to Show</h4>
-			{% endfor %}
-		</h3>
-		<h4>
-			{% for i in numpyData %}
-				{{ i }}
-			{% endfor %}
-		</h4>
-	</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+	{{ title }}
+{% endblock title%}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock navbar %}
+
+{% block body %}
+	<h2>
+		<!-- Template filters are used by "variableName | filer" -->
+		{% if request.user.is_authenticated %}
+			Welcome {{ request.user | capfirst }}!
+			<a href="{% url 'user_profile:logout' %}">Logout</a>
+		{% else %}
+			<!-- url namespace:name namespace define in settings and urls page, name define in urls page  -->
+			Welcome Learning Platform
+			<a href="{% url 'user_profile:login' %}">Login</a>
+		{% endif %}
+	</h2>
+	<h3>
+		{% for name in data %}
+			{{ forloop.counter }}. {{ name }}<br>
+			
+			{% empty %}
+				<h4>No Data to Show</h4>
+		{% endfor %}
+	</h3>
+	<h4>
+		{% for i in numpyData %}
+			{{ i }}
+		{% endfor %}
+	</h4>
+{% endblock body %}
