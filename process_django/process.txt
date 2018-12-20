@@ -37,6 +37,9 @@ python manage.py migrate
 # Register site in admin.py file
 from .models import Category
 admin.site.register(Category) => This returns as object. To show the field override __str__ function
-							def __str__(self):
-									return self.fieldName
+	def __str__(self):
+		return self.fieldName
+
+
+
 
