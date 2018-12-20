@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
 from pprint import pprint
-
 import numpy as np
+
+from .models import Category
 
 # function based views
 def home(request):
@@ -12,7 +13,7 @@ def home(request):
 	context ={
 		# "username": "Sunil",
 		'title': 'Home Page',
-		'data': {'santosh', 'ram', 'shyam'},
+		'data': Category.objects.all(),
 		'numpyData': np.zeros(5),
 	}
 	# render(request, template, context=should be dict)

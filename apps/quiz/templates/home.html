@@ -20,8 +20,8 @@
 		{% endif %}
 	</h2>
 	<h3>
-		{% for name in data %}
-			{{ forloop.counter }}. {{ name }}<br>
+		{% for obj in data %}
+			{{ forloop.counter }}. {{ obj.name }}<br>
 			
 			{% empty %}
 				<h4>No Data to Show</h4>
