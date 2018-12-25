@@ -14,7 +14,7 @@ def home(request):
 		# "username": "Sunil",
 		'title': 'Home Page',
 		'data': Category.objects.all(),
-		'numpyData': np.zeros(5),
+		# 'numpyData': np.zeros(5),
 	}
 	# render(request, template, context=should be dict)
 	return render(request, template, context=context)
